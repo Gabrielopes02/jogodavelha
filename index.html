@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da velha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <div class="content">
+    <div>
+    <button class="casinha">⌂</button>        
+    </div>
+   
+    <div class="menu">
+       <button type="button" class="options" id="buttonHome">⌂</button>
+       <button type="button" class="options">🎮
+</button>
+       <button type="button" class="options">⚙</button>
+    </div>
+    <div class="game">
+        <h2>JOGO DA VELHA</h2>
+
+        <div class="table">
+            <div class="botoes">
+        <div class="jogadas" id="11" onclick="jogadas(this)"></div>
+        <div class="jogadas" id="12" onclick="jogadas(this)"></div>
+        <div class="jogadas" id="13" onclick="jogadas(this)"></div>
+        <div class="jogadas" id="21" onclick="jogadas(this)"></div>
+        <div class="jogadas" id="22" onclick="jogadas(this)"></div>
+        <div class="jogadas" id="23" onclick="jogadas(this)"></div>
+        <div class="jogadas" id="31" onclick="jogadas(this)"></div>
+        <div class="jogadas" id="32" onclick="jogadas(this)"></div>
+        <div class="jogadas" id="33" onclick="jogadas(this)"></div>
+        </div>
+
+        </div>
+        <div class="but">
+        <button class="players">&#129302;jogar sozinho</button>
+        <button class="players"> &#128101;2 jogadores</button>
+        </div>
+    </div>
+   
+</div>
+<dialog id="modal">
+    <div id="resultado">
+    <h2>X ganhou</h2>
+    <button class="players" id="closeModal">
+        <p>jogar novamente</p>
+    </button>
+</div>
+</dialog>
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
