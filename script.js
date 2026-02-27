@@ -1,11 +1,6 @@
 // toDO
 /**
 
-
-
-  
- 
-
  implementar a vitoria na diagonal principal
  fazer menu de config
  implementar bot
