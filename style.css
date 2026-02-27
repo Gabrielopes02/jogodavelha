@@ -68,7 +68,14 @@ width: 10%;
       font-size: 3rem;
       color: var(--letra);
       margin-top: 10px;
+    
+      
     }
+    .placar{
+  
+     visibility: hidden;
+    }
+
     
 
   .table{
