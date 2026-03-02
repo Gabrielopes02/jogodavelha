@@ -1,61 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-width: 100vw;
-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;
-background-color: var(--fundo);
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fundo);
 }
-.content{
-width: 95%;
-height: 95%;
-max-width: 1200px;
-display: flex;
-box-shadow: 0 0 10px #919191;
+.content {
+  width: 95%;
+  height: 95%;
+  max-width: 1200px;
+  display: flex;
+  box-shadow: 0 0 10px #919191;
 
-    .casinha{
-      border: none;
-      font-size: 4rem;
-      margin: 10px 0 0 20px;
-      display: none;
-    }
-
-
+  .casinha {
+    border: none;
+    font-size: 4rem;
+    margin: 10px 0 0 20px;
+    display: none;
+  }
 }
 
-.menu{
-background-color: var(--css-grid);
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-gap:2px;
-border: none;
-border-right: 5px solid var(--css-grid);
-width: 10%;
-
-  .options{
-  height: 33%;
-   background-color: var(--fundo);
+.menu {
+  background-color: var(--css-grid);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 2px;
   border: none;
+  border-right: 5px solid var(--css-grid);
+  width: 10%;
+
+  .options {
+    height: 33%;
+    background-color: var(--fundo);
+    border: none;
     font-size: 3rem;
 
-
-  &&:hover{
-     background-color: var(--css-grid);
-     
+    &&:hover {
+      background-color: var(--css-grid);
+    }
   }
-  }
-
 }
-.game{
+.game {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,31 +57,24 @@ width: 10%;
 
   flex-grow: 1;
 
-    h2{
-      font-family: "Poppins",sans-serif;
-      font-size: 3rem;
-      color: var(--letra);
-      margin-top: 10px;
-    
-      
-    }
-    .placar{
-  
-     visibility: hidden;
-    }
+  h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 3rem;
+    color: var(--letra);
+    margin-top: 10px;
+  }
+  .placar {
+    visibility: hidden;
+  }
 
-    
+  .table {
+    margin: 30px;
+    max-width: 600px;
+    aspect-ratio: 1/1;
+    width: 100%;
+    display: flex;
 
-  .table{
-  margin: 30px;
- max-width: 600px;
- aspect-ratio: 1/1;
- width: 100%;
- display: flex;
-
-
-
-    .botoes{
+    .botoes {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -96,7 +83,7 @@ width: 10%;
       width: 100%;
       height: 100%;
 
-        .jogadas{
+      .jogadas {
         background-color: var(--tabuleiro);
         width: 31%;
         aspect-ratio: 1/1;
@@ -104,155 +91,132 @@ width: 10%;
         justify-content: center;
         align-items: center;
         font-size: 6em;
-        font-family: "Poppins",sans-serif;
-       
-          
-          &&:hover{
-          background-color: rgb(188, 198, 207)
-          }
-      }
-  }
-}
+        font-family: "Poppins", sans-serif;
 
-  .but{
-    margin-top: 40px;
+        &&:hover {
+          background-color: rgb(188, 198, 207);
+        }
+      }
+    }
+  }
+
+  .but {
     width: 50%;
     display: flex;
     justify-content: space-around;
-    
+    align-items: center;
+    margin-bottom: 20px;
 
-    .players{
+    .players {
       width: 150px;
       height: 40px;
-      border-radius: 20px; 
-      font-family: "Poppins",sans-serif;
+      border-radius: 20px;
+      font-family: "Poppins", sans-serif;
       border: none;
       font-size: 1rem;
       position: relative;
-      
 
-
-        &&:first-child{
+      &:first-child {
         background-color: var(--azul);
-        &&:hover{
-        background-color:var(--hover-azul) ;
+        &:hover {
+          background-color: var(--hover-azul);
         }
-        }
-        &&:last-child{
+      }
+      &:last-child {
         background-color: var(--laranja);
-        &&:hover{
-        background-color: var(--hover-laranja) ;
+        &:hover {
+          background-color: var(--hover-laranja);
         }
-        }
+      }
     }
   }
-
 }
-:root{
---fundo:#F4F6F8;
---tabuleiro:#E9EEF3;
---azul:#7DA9E3;
---hover-azul:#5D8FD6;
---laranja:#F4B183;
---hover-laranja:#E89A5E;
---css-grid:#C9D3DF;
---letra:#6B7280;
+:root {
+  --fundo: #f4f6f8;
+  --tabuleiro: #e9eef3;
+  --azul: #7da9e3;
+  --hover-azul: #5d8fd6;
+  --laranja: #f4b183;
+  --hover-laranja: #e89a5e;
+  --css-grid: #c9d3df;
+  --letra: #6b7280;
 }
 
-@media (max-width:425px) {
-  .content{
+@media (max-width: 425px) {
+  .content {
     flex-direction: column;
     font-size: 0.5rem;
 
+    .casinha {
+      display: block;
 
-    .casinha{
-    display: block;
-   
-    aspect-ratio: 1/1;
+      aspect-ratio: 1/1;
 
-
-    &&:hover{
-    background-color:var(--css-grid);
+      &&:hover {
+        background-color: var(--css-grid);
+      }
     }
-    }
- 
   }
-  .menu{
-  display: none;
+  .menu {
+    display: none;
   }
-  
-  .game{ 
+
+  .game {
     justify-content: space-around;
-  
-  h2{
-  font-size: 2rem;
-  
-  
-  }         
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .but {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .table {
+    width: 100%;
+    padding: 8px;
+  }
 }
 
-  .but{
+#resultado {
+  display: flex;
   flex-direction: column;
-  gap: 10px;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-  
-  }
-  .table{
-  width:100%;
-  padding: 8px;
-    
-  
-  }
-}
-
-#resultado{
-display: flex;
-flex-direction: column;
-align-items: center;
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-50%);
-border: none;
-background-color: transparent;
-font-size: clamp(0.5rem,2vw + 0.9rem,6rem);
-font-family: 'poppins';
-
-
-
-
-
-
- .players{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: none;
-  background-color: rgb(96, 231, 96);
-  padding: 10px;
-  border-radius: 10px;
-  &:hover{
-  background-color: rgb(105, 202, 105);
-  border: none;
+  background-color: transparent;
+  font-size: clamp(0.5rem, 2vw + 0.9rem, 6rem);
+  font-family: "poppins";
+
+  .players {
+    border: none;
+    background-color: rgb(96, 231, 96);
+    padding: 10px;
+    border-radius: 10px;
+    &:hover {
+      background-color: rgb(105, 202, 105);
+      border: none;
+    }
   }
-  
-
-}
 }
 
-#modal[open] #resultado{
-animation: aparecer 0.5s ease forwards;
+#modal[open] #resultado {
+  animation: aparecer 0.5s ease forwards;
 }
 
 @keyframes aparecer {
-  
-  from{
-  opacity: 0;
-  left:30% ;
+  from {
+    opacity: 0;
+    left: 30%;
   }
-  to{
-  opacity: 1;
- 
- 
+  to {
+    opacity: 1;
+  }
 }
-}
-

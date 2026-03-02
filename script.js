@@ -1,6 +1,6 @@
 // toDO
-/**
-
+/*
+ colocar velha 
  implementar a vitoria na diagonal principal
  fazer menu de config
  implementar bot
@@ -13,8 +13,8 @@ let posicoesJogadasX = new Array();
 let posicoesJogadasO = new Array();
 let vez = "X";
 let color = "";
- let X = 0,
-      O = 0;
+let X = 0,
+  O = 0;
 const buttonHome = document.getElementById("buttonHome");
 const modal = document.getElementById("modal");
 const btnfecharModal = document.getElementById("closeModal");
@@ -22,6 +22,11 @@ const stringVitoria = document.getElementById("stringGanhou");
 
 btnfecharModal.addEventListener("click", () => {
   modal.close();
+  posicoesJogadasX = [];
+  posicoesJogadasO = [];
+  posicoesAJogar = posicoesDisponiveis;
+  ganhou = 0;
+  ganhouD = 0;
 });
 
 function jogadas(numero) {
@@ -57,11 +62,11 @@ function jogadas(numero) {
     (i) => i != Math.trunc(numero.id / 100),
   );
 
-  quemGanhou(posicoesJogadasX, "X");
-  quemGanhou(posicoesJogadasO, "O");
+  quemGanhou(posicoesJogadasX, "X", posicoesAJogar);
+  quemGanhou(posicoesJogadasO, "O", posicoesAJogar);
 }
 
-function quemGanhou(arrayjogadas, vez) {
+function quemGanhou(arrayjogadas, vez, posicoesAJogar) {
   let soma = 0;
   let ganhouD = 0;
   let ganhou = 0;
@@ -82,8 +87,24 @@ function quemGanhou(arrayjogadas, vez) {
   numRepetidos(linhas);
   let colunas = arrayjogadas.map((x) => x % 10);
   numRepetidos(colunas);
+  ganhadorDiagonal(arrayjogadas)
+
+  function ganhadorDiagonal(arrayjogadas) {
+    let soma = 0
+    
+    arrayjogadas.forEach((item) => {
+      let arrayString = item.toString()
+      if (arrayString[0] == arrayString[1]) {
+        soma++
+      }
+      soma==3?ganhou = 3:ganhou = ganhou
+   })
+    
+  }
 
   function numRepetidos(vetorTeste) {
+    // confere se houve ganhador
+
     let repetidos = vetorTeste.filter(
       (item, index) => vetorTeste.indexOf(item) !== index,
     );
@@ -106,19 +127,19 @@ function quemGanhou(arrayjogadas, vez) {
     });
   }
 
-  if (ganhou == 3 || ganhouD == 3) {
-   
+  function limparTabuleiro() {
     let jogadas = document.getElementsByClassName("jogadas");
-    const placar = document.getElementsByClassName("placar")[0];
     for (let i = 0; i < jogadas.length; i++) {
       // limpa o tabuleiro
       jogadas[i].innerText = "";
     }
+  }
 
-    vez === "X" ? X++ : O++;
-    placar.innerHTML = `<span>${X}</span> X <span>${O}</span>`;
+  function mostrarPlacar() {
+    
+    const placar = document.getElementsByClassName("placar")[0];
     placar.style.visibility = "visible";
-
+    placar.innerHTML = `<span>${X}</span> X <span>${O}</span>`;
     const letraX = placar.children[0];
     letraX.style.color = getComputedStyle(
       document.documentElement,
@@ -127,11 +148,20 @@ function quemGanhou(arrayjogadas, vez) {
     letraO.style.color = getComputedStyle(
       document.documentElement,
     ).getPropertyValue("--laranja");
-
+  }
+  if (ganhou == 3 || ganhouD == 3) {
+    limparTabuleiro();
     modal.showModal();
     stringVitoria.innerText = `${vez} ganhou`;
-    posicoesJogadasX = [];
-    posicoesJogadasO = [];
-    posicoesAJogar = posicoesDisponiveis;
+    vez === "X" ? X++ : O++;
+    mostrarPlacar();
+  } else {
+    if (posicoesAJogar.length == 0) {
+      modal.showModal();
+      stringVitoria.innerText = "Velha";
+
+      limparTabuleiro();
+      mostrarPlacar();
+    }
   }
 }
