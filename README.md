@@ -1,2 +1,2 @@
-# jogodavelha
+# jogo da velha
 
