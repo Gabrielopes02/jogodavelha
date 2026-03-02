@@ -87,19 +87,18 @@ function quemGanhou(arrayjogadas, vez, posicoesAJogar) {
   numRepetidos(linhas);
   let colunas = arrayjogadas.map((x) => x % 10);
   numRepetidos(colunas);
-  ganhadorDiagonal(arrayjogadas)
+  ganhadorDiagonal(arrayjogadas);
 
   function ganhadorDiagonal(arrayjogadas) {
-    let soma = 0
-    
+    let soma = 0;
+
     arrayjogadas.forEach((item) => {
-      let arrayString = item.toString()
+      let arrayString = item.toString();
       if (arrayString[0] == arrayString[1]) {
-        soma++
+        soma++;
       }
-      soma==3?ganhou = 3:ganhou = ganhou
-   })
-    
+      soma == 3 ? (ganhou = 3) : (ganhou = ganhou);
+    });
   }
 
   function numRepetidos(vetorTeste) {
@@ -136,7 +135,6 @@ function quemGanhou(arrayjogadas, vez, posicoesAJogar) {
   }
 
   function mostrarPlacar() {
-    
     const placar = document.getElementsByClassName("placar")[0];
     placar.style.visibility = "visible";
     placar.innerHTML = `<span>${X}</span> X <span>${O}</span>`;
