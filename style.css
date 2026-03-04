@@ -35,7 +35,6 @@ body {
   justify-content: space-around;
   gap: 2px;
   border: none;
-  border-right: 5px solid var(--css-grid);
   width: 10%;
 
   .options {
@@ -43,19 +42,25 @@ body {
     background-color: var(--fundo);
     border: none;
     font-size: 3rem;
+    border-right: 5px solid var(--css-grid);
+    transition: all 0.4s ease-in-out;
 
     &&:hover {
       background-color: var(--css-grid);
     }
+    &:first-child {
+      border-right: none;
+    }
   }
 }
 .game {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-
+  /* transition: all 0.3s ease-in-out; */
   flex-grow: 1;
+  animation: aparecer 1s ease forwards;
 
   h2 {
     font-family: "Poppins", sans-serif;
