@@ -62,11 +62,11 @@ body {
   width: 100%;
   padding-left: 5px;
   text-align: center;
- .home-content{
-  height: 100%;
-  display: flex;
-align-items: end;
-}
+  .home-content {
+    height: 100%;
+    display: flex;
+    align-items: end;
+  }
 }
 .game {
   display: none;
@@ -151,8 +151,8 @@ align-items: end;
     }
   }
 }
-.config{
-display: none;
+.config {
+  display: none;
 }
 :root {
   --fundo: #f4f6f8;
@@ -172,7 +172,6 @@ display: none;
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
-  
 
     .casinha {
       display: block;
@@ -253,7 +252,7 @@ display: none;
 }
 @keyframes escrever {
   0% {
-    translateY: -5px;
+    translatey: -5px;
   }
   100% {
     translate: 0px;
