@@ -22,7 +22,45 @@ let ganhouD = 0;
 let ganhou = 0;
 let botON = true;
 let macete1 = new Array(1, 3, 7, 9);
+let contadorVersiculo = 0;
 
+let versiculos = [
+  {
+    titulo: "2 corintios 4:15",
+    conteudo:
+      "porque todas as coisas existem por amor de vos, para que a graça, multiplicando-se torne abundantes as acoes de graças por meio de muitos, para a gloria de Deus",
+  },
+  {
+    titulo: "2 corintios 13:14",
+    conteudo:
+      "A graça do senhor jesus cristo e o amor de Deus e a comunhao do espirito santo sejam com todos vós",
+  },
+  {
+    titulo: "Romanos 5:5",
+    conteudo:
+      "Ora a esperanca nao confunde, porque o amor de Deus é derramado em nosso coração pelo espirito santo, que mos foi outorgado ",
+  },
+  {
+    titulo: "Romanos 5:8",
+    conteudo:
+      "Mas Deus prova o seu proprio  amor para conosco pelo fato de ter cristo morrido por nós, sendo mos ainda pecadores",
+  },
+  {
+    titulo: "Efésios 2: 3,4",
+    conteudo:
+      "Entre os quais todos nós também antes andávamos nos desejos da nossa carne, fazendo a vontade da carne e dos pensamentos; e éramos por natureza filhos da ira, como os outros também. Mas Deus, que é riquíssimo em misericórdia, pelo seu muito amor com que nos amou",
+  },
+  {
+    titulo: "Efésios 3:17-19",
+    conteudo:
+      "Para que Cristo habite pela fé nos vossos corações; a fim de, estando enraizados e fundados em amor,Poderdes perfeitamente compreender, com todos os santos, qual seja a largura, e o comprimento, e a altura, e a profundidade, E conhecer o amor de Cristo, que excede todo o entendimento, para que sejais cheios de toda a plenitude de Deus.",
+  },
+  {
+    titulo: "Efésios 5:1,2",
+    conteudo:
+      "Sede, pois, imitadores de Deus, como filhos amados. E andai em amor, como também Cristo nos amou, e se entregou a si mesmo por nós, em oferta e sacrifício a Deus, em cheiro suave.",
+  },
+];
 const modal = document.getElementById("modal");
 const btnfecharModal = document.getElementById("closeModal");
 const stringVitoria = document.getElementById("stringGanhou");
@@ -33,37 +71,64 @@ const btnHome = document.getElementsByClassName("options")[0];
 const btnGame = document.getElementsByClassName("options")[1];
 const btnConfig = document.getElementsByClassName("options")[2];
 const arraybtnJogadas = Array.from(btnJogadas);
-const tabuleiro = document.getElementsByClassName('game')[0]
-const divHome = document.getElementsByClassName('home')[0]
-const divConfig = document.getElementsByClassName('config')[0]
+const tabuleiro = document.getElementsByClassName("game")[0];
+const divHome = document.getElementsByClassName("home")[0];
+const divConfig = document.getElementsByClassName("config")[0];
 
+const frasesHome = document.getElementById("frasesHome");
+
+const escreverVersiculos = () => {
+  let frase = versiculos[contadorVersiculo].conteudo;
+  let stringFrase = "";
+  let i = 0;
+
+  meuIntervalo = setInterval(() => {
+    // escreve a frase letra por letra num intervalo selecionado
+    
+    frasesHome.innerText = `${versiculos[contadorVersiculo].titulo}\n${stringFrase}`;
+    stringFrase += frase[i];
+    if (i < frase.length) {
+      i++;
+    } else {
+      i = 0;
+      stringFrase = "";
+      contadorVersiculo < versiculos.length - 1
+        ? contadorVersiculo++
+        : (contadorVersiculo = 0);
+      clearInterval(meuIntervalo);
+      escreverVersiculos();
+    }
+  }, 100);
+};
+escreverVersiculos();
 btnHome.addEventListener("click", () => {
   btnHome.style.borderRight = "none";
   btnGame.style.borderRight = "5px solid var(--css-grid)";
   btnConfig.style.borderRight = "5px solid var(--css-grid)";
-  tabuleiro.style.display = 'none'
-  divHome.style.display = 'flex'
-  divConfig.style.display = 'none'
-  
+  tabuleiro.style.display = "none";
+  divHome.style.display = "flex";
+  divConfig.style.display = "none";
+  clearInterval(meuIntervalo);
+  escreverVersiculos();
 });
 btnGame.addEventListener("click", () => {
   btnGame.style.borderRight = "none";
   btnHome.style.borderRight = "5px solid var(--css-grid)";
   btnConfig.style.borderRight = "5px solid var(--css-grid)";
-  tabuleiro.style.display = 'flex'
-   divHome.style.display = 'none'
-  divConfig.style.display = 'none'
+  tabuleiro.style.display = "flex";
+  divHome.style.display = "none";
+  divConfig.style.display = "none";
+  clearInterval(meuIntervalo);
 });
 btnConfig.addEventListener("click", () => {
   btnConfig.style.borderRight = "none";
   btnHome.style.borderRight = "5px solid var(--css-grid)";
   btnGame.style.borderRight = "5px solid var(--css-grid)";
-  tabuleiro.style.display = 'none'
-  divHome.style.display = 'none'
-  divConfig.style.display = 'flex'
+  tabuleiro.style.display = "none";
+  divHome.style.display = "none";
+  divConfig.style.display = "flex";
+  clearInterval(meuIntervalo);
 });
-
-
 
 btnJgrSozinho.addEventListener("click", () => {
   botON = true;
@@ -91,8 +156,6 @@ btnfecharModal.addEventListener("click", () => {
   ganhou = 0;
   ganhouD = 0;
 });
-
-
 
 function jogadas(numero) {
   let id = numero.id % 100;

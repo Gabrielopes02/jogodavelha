@@ -1,73 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jogo da velha</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="content">
+           <h2 hidden>JOGO DA VELHA</h2>
+      <div>
+        <button class="casinha">⌂</button>
+     
+      </div>
 
-   <div class="content">
-    <div>
-    <button class="casinha">⌂</button>        
-    </div>
-   
-    <div class="menu">
-       <button type="button" class="options" id="buttonHome">⌂</button>
-       <button type="button" class="options">🎮
-</button>
-       <button type="button" class="options">⚙</button>
-    </div>
+      <div class="menu">
+        <button type="button" class="options" id="buttonHome">⌂</button>
+        <button type="button" class="options">🎮</button>
+        <button type="button" class="options">⚙</button>
+      </div>
+      <div></div>
+      <div class="home">
+        <div class="home-content">
+          <p id="frasesHome">iwn iwn</p>
+        </div>
+      </div>
 
-    <div class="home">
-       <h2>JOGO DA VELHA</h2>
-       placar
-       alguma frase motivacional
-
-    </div>
-
-    <div class="game">
+      <div class="game">
         <h2>JOGO DA VELHA</h2>
         <h2 class="placar">x</h2>
         <div class="table">
-            <div class="botoes">
-        <div class="jogadas" id="111" onclick="jogadas(this)"></div>
-        <div class="jogadas" id="212" onclick="jogadas(this)"></div>
-        <div class="jogadas" id="313" onclick="jogadas(this)"></div>
-        <div class="jogadas" id="421" onclick="jogadas(this)"></div>
-        <div class="jogadas" id="522" onclick="jogadas(this)"></div>
-        <div class="jogadas" id="623" onclick="jogadas(this)"></div>
-        <div class="jogadas" id="731" onclick="jogadas(this)"></div>
-        <div class="jogadas" id="832" onclick="jogadas(this)"></div>
-        <div class="jogadas" id="933" onclick="jogadas(this)"></div>
-        </div>
-
+          <div class="botoes">
+            <div class="jogadas" id="111" onclick="jogadas(this)"></div>
+            <div class="jogadas" id="212" onclick="jogadas(this)"></div>
+            <div class="jogadas" id="313" onclick="jogadas(this)"></div>
+            <div class="jogadas" id="421" onclick="jogadas(this)"></div>
+            <div class="jogadas" id="522" onclick="jogadas(this)"></div>
+            <div class="jogadas" id="623" onclick="jogadas(this)"></div>
+            <div class="jogadas" id="731" onclick="jogadas(this)"></div>
+            <div class="jogadas" id="832" onclick="jogadas(this)"></div>
+            <div class="jogadas" id="933" onclick="jogadas(this)"></div>
+          </div>
         </div>
         <div class="but">
-        <button class="players" id="jogarSozinho">&#129302;jogar sozinho</button>
-        <button class="players" id="2jogadores"> &#128101;2 jogadores</button>
+          <button class="players" id="jogarSozinho">
+            &#129302;jogar sozinho
+          </button>
+          <button class="players" id="2jogadores">&#128101;2 jogadores</button>
         </div>
+      </div>
+      <div class="config">tema dificuldade do bot reset de placar</div>
     </div>
- <div class="config"> 
-    tema
-    dificuldade do bot
-    reset de placar
-    </div>
-</div>
-<dialog id="modal">
-    <div id="resultado">
-    <h2 id="stringGanhou"></h2>
-    <button class="players" id="closeModal">
-        <p>jogar novamente</p>
-    </button>
-</div>
-</dialog>
-
-
-
-
+    <dialog id="modal">
+      <div id="resultado">
+        <h2 id="stringGanhou"></h2>
+        <button class="players" id="closeModal">
+          <p>jogar novamente</p>
+        </button>
+      </div>
+    </dialog>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
