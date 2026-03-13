@@ -221,6 +221,13 @@ body {
   }
 }
 
+@media(max-width:340){
+
+  .table{
+    margin: 0;
+  }
+}
+
 #resultado {
   display: flex;
   flex-direction: column;
