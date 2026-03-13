@@ -178,24 +178,23 @@ body {
   }
   .menu {
     width: 100%;
-    
+
     background-color: transparent;
     flex-direction: row;
     border: none;
     .options {
       border: none;
-      border-bottom: 5px solid var(--css-grid) ;
+      border-bottom: 5px solid var(--css-grid);
       width: 100%;
       height: 100%;
-      
-       &:hover{
-      background-color: transparent;
+
+      &:hover {
+        background-color: transparent;
+      }
+      &:first-child {
+        border-bottom: none;
+      }
     }
-    &:first-child{
-      border-bottom:none;
-    }
-    }
-   
   }
 
   .game {
@@ -213,7 +212,6 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: 40px;
-  
   }
   .table {
     width: 100%;
@@ -221,10 +219,9 @@ body {
   }
 }
 
-@media(max-width:340){
-
-  .table{
-    margin: 0;
+@media (max-width: 319px) {
+  .jogadas {
+    max-width: 28%;
   }
 }
 
