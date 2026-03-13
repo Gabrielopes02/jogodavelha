@@ -170,25 +170,21 @@ body {
     flex-direction: column;
     font-size: 0.5rem;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     padding-top: 20px;
-
-    .casinha {
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 10px;
-      background-color: transparent;
-
-      aspect-ratio: 1/1;
-
-      &&:hover {
-        background-color: var(--css-grid);
-      }
+    &.active {
+      position: relative;
     }
   }
   .menu {
-    display: none;
+    width: 100%;
+
+    background-color: transparent;
+    flex-direction: row;
+    border: none;
+    .options {
+      border: none;
+    }
   }
 
   .game {

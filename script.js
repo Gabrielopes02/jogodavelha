@@ -84,7 +84,7 @@ const escreverVersiculos = () => {
 
   meuIntervalo = setInterval(() => {
     // escreve a frase letra por letra num intervalo selecionado
-    
+
     frasesHome.innerText = `${versiculos[contadorVersiculo].titulo}\n${stringFrase}`;
     stringFrase += frase[i];
     if (i < frase.length) {
@@ -102,9 +102,19 @@ const escreverVersiculos = () => {
 };
 escreverVersiculos();
 btnHome.addEventListener("click", () => {
-  btnHome.style.borderRight = "none";
-  btnGame.style.borderRight = "5px solid var(--css-grid)";
-  btnConfig.style.borderRight = "5px solid var(--css-grid)";
+  if (window.innerWidth < 425) {
+
+    btnHome.style.borderBottom = "none";
+    btnGame.style.borderBottom = "5px solid var(--css-grid)";
+    btnConfig.style.borderBottom = "5px solid var(--css-grid)";
+
+  } else {
+
+    btnHome.style.borderRight = "none";
+    btnGame.style.borderRight = "5px solid var(--css-grid)";
+    btnConfig.style.borderRight = "5px solid var(--css-grid)";
+
+  }
   tabuleiro.style.display = "none";
   divHome.style.display = "flex";
   divConfig.style.display = "none";
@@ -112,22 +122,42 @@ btnHome.addEventListener("click", () => {
   escreverVersiculos();
 });
 btnGame.addEventListener("click", () => {
-  btnGame.style.borderRight = "none";
-  btnHome.style.borderRight = "5px solid var(--css-grid)";
-  btnConfig.style.borderRight = "5px solid var(--css-grid)";
+
+ if (window.innerWidth < 425) {
+  
+    btnHome.style.borderBottom = "5px solid var(--css-grid)";
+    btnGame.style.borderBottom = "none";
+    btnConfig.style.borderBottom = "5px solid var(--css-grid)";
+
+  } else {
+
+    btnHome.style.borderRight = "none";
+    btnGame.style.borderRight = "5px solid var(--css-grid)";
+    btnConfig.style.borderRight = "5px solid var(--css-grid)";
+
+  }
   tabuleiro.style.display = "flex";
   divHome.style.display = "none";
   divConfig.style.display = "none";
   clearInterval(meuIntervalo);
 });
 btnConfig.addEventListener("click", () => {
-  btnConfig.style.borderRight = "none";
-  btnHome.style.borderRight = "5px solid var(--css-grid)";
-  btnGame.style.borderRight = "5px solid var(--css-grid)";
+  if (window.innerWidth < 425) {
+  
+    btnHome.style.borderBottom = "5px solid var(--css-grid)";
+    btnGame.style.borderBottom = "5px solid var(--css-grid)";
+    btnConfig.style.borderBottom = "none";
+
+  } else {
+
+    btnHome.style.borderRight = "none";
+    btnGame.style.borderRight = "5px solid var(--css-grid)";
+    btnConfig.style.borderRight = "5px solid var(--css-grid)";
+
+  }
   tabuleiro.style.display = "none";
   divHome.style.display = "none";
   divConfig.style.display = "flex";
-  clearInterval(meuIntervalo);
 });
 
 btnJgrSozinho.addEventListener("click", () => {
