@@ -102,18 +102,14 @@ const escreverVersiculos = () => {
 };
 escreverVersiculos();
 btnHome.addEventListener("click", () => {
-  if (window.innerWidth < 425) {
-
+  if (window.innerWidth <= 425) {
     btnHome.style.borderBottom = "none";
     btnGame.style.borderBottom = "5px solid var(--css-grid)";
     btnConfig.style.borderBottom = "5px solid var(--css-grid)";
-
   } else {
-
     btnHome.style.borderRight = "none";
     btnGame.style.borderRight = "5px solid var(--css-grid)";
     btnConfig.style.borderRight = "5px solid var(--css-grid)";
-
   }
   tabuleiro.style.display = "none";
   divHome.style.display = "flex";
@@ -122,19 +118,14 @@ btnHome.addEventListener("click", () => {
   escreverVersiculos();
 });
 btnGame.addEventListener("click", () => {
-
- if (window.innerWidth < 425) {
-  
+  if (window.innerWidth <= 425) {
     btnHome.style.borderBottom = "5px solid var(--css-grid)";
     btnGame.style.borderBottom = "none";
     btnConfig.style.borderBottom = "5px solid var(--css-grid)";
-
   } else {
-
     btnHome.style.borderRight = "none";
     btnGame.style.borderRight = "5px solid var(--css-grid)";
     btnConfig.style.borderRight = "5px solid var(--css-grid)";
-
   }
   tabuleiro.style.display = "flex";
   divHome.style.display = "none";
@@ -142,18 +133,14 @@ btnGame.addEventListener("click", () => {
   clearInterval(meuIntervalo);
 });
 btnConfig.addEventListener("click", () => {
-  if (window.innerWidth < 425) {
-  
+  if (window.innerWidth <= 425) {
     btnHome.style.borderBottom = "5px solid var(--css-grid)";
     btnGame.style.borderBottom = "5px solid var(--css-grid)";
     btnConfig.style.borderBottom = "none";
-
   } else {
-
     btnHome.style.borderRight = "none";
     btnGame.style.borderRight = "5px solid var(--css-grid)";
     btnConfig.style.borderRight = "5px solid var(--css-grid)";
-
   }
   tabuleiro.style.display = "none";
   divHome.style.display = "none";
