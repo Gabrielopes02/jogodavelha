@@ -20,7 +20,7 @@ let X = 0,
 let soma = 0;
 let ganhouD = 0;
 let ganhou = 0;
-let botON = true;
+let botON = false;
 let macete1 = new Array(1, 3, 7, 9);
 let contadorVersiculo = 0;
 
@@ -101,9 +101,16 @@ const escreverVersiculos = () => {
   }, 100);
 };
 escreverVersiculos();
+
+function retirarBorder() {
+  btnHome.style.border = "none";
+  btnGame.style.border = "none";
+  btnConfig.style.border = "none";
+}
 btnHome.addEventListener("click", () => {
+  retirarBorder()
   if (window.innerWidth <= 425) {
-    btnHome.style.borderBottom = "none";
+    btnHome.style.border = "none";
     btnGame.style.borderBottom = "5px solid var(--css-grid)";
     btnConfig.style.borderBottom = "5px solid var(--css-grid)";
   } else {
@@ -118,13 +125,14 @@ btnHome.addEventListener("click", () => {
   escreverVersiculos();
 });
 btnGame.addEventListener("click", () => {
+  retirarBorder()
   if (window.innerWidth <= 425) {
     btnHome.style.borderBottom = "5px solid var(--css-grid)";
-    btnGame.style.borderBottom = "none";
+    btnGame.style.border = "none";
     btnConfig.style.borderBottom = "5px solid var(--css-grid)";
   } else {
-    btnHome.style.borderRight = "none";
-    btnGame.style.borderRight = "5px solid var(--css-grid)";
+    btnHome.style.borderRight = "5px solid var(--css-grid)";
+    btnGame.style.borderRight = "none";
     btnConfig.style.borderRight = "5px solid var(--css-grid)";
   }
   tabuleiro.style.display = "flex";
@@ -133,14 +141,15 @@ btnGame.addEventListener("click", () => {
   clearInterval(meuIntervalo);
 });
 btnConfig.addEventListener("click", () => {
+retirarBorder()
   if (window.innerWidth <= 425) {
     btnHome.style.borderBottom = "5px solid var(--css-grid)";
     btnGame.style.borderBottom = "5px solid var(--css-grid)";
     btnConfig.style.borderBottom = "none";
   } else {
-    btnHome.style.borderRight = "none";
+    btnHome.style.borderRight = "5px solid var(--css-grid)";
     btnGame.style.borderRight = "5px solid var(--css-grid)";
-    btnConfig.style.borderRight = "5px solid var(--css-grid)";
+    btnConfig.style.borderRight = "none";
   }
   tabuleiro.style.display = "none";
   divHome.style.display = "none";
@@ -217,12 +226,24 @@ function quemGanhou(arrayjogadas, vez, posicoesAJogar) {
     // itera sobre todos os itens do array
     let stringNum = arrayjogadas[i].toString();
 
-    for (let digito of stringNum) {
-      //somar 2 algarismos para diagonal secundária
-      soma += parseInt(digito);
+    function ganhadorSecDiagonal(arrayjogadas) {
+      let somaDiagonal = 0;
+      let soma = 0;
+      arrayjogadas.forEach((item) => {
+        let arrayString = item.toString();
+        let num1 = parseInt(arrayString[0]);
+        let num2 = parseInt(arrayString[1]);
+        somaDiagonal = num1 + num2;
+
+        if (somaDiagonal == 4) {
+          soma++;
+        }
+
+        soma == 3 ? (ganhou = 3) : (ganhou = ganhou);
+      });
     }
-    ganhouD = soma == 4 ? (ganhouD += 1) : ganhouD;
-    soma = 0;
+
+    ganhadorSecDiagonal(arrayjogadas);
   }
 
   let linhas = arrayjogadas.map((x) => Math.trunc(x / 10));
@@ -295,6 +316,8 @@ function quemGanhou(arrayjogadas, vez, posicoesAJogar) {
     stringVitoria.innerText = `${vez} ganhou`;
     vez === "X" ? X++ : O++;
     mostrarPlacar();
+    ganhou = 0;
+    ganhouD = 0;
   } else {
     if (posicoesAJogar.length == 0) {
       modal.showModal();
