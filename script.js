@@ -77,6 +77,13 @@ const divConfig = document.getElementsByClassName("config")[0];
 
 const frasesHome = document.getElementById("frasesHome");
 
+
+const btnTema = document.getElementById('btnTema')
+
+btnTema.addEventListener('click', () => {
+  btnTema.classList.toggle('active')
+})
+
 const escreverVersiculos = () => {
   let frase = versiculos[contadorVersiculo].conteudo;
   let stringFrase = "";
